@@ -11,7 +11,7 @@ if __name__ == '__main__':
     fig, ax1 = plt.subplots()
     fig.set_size_inches(15, 8, forward=True)
     color = 'tab:red'
-    ax1.set_xlabel('time (s)')
+    ax1.set_xlabel('time (candle ticks)')
     ax1.set_ylabel(config.symbols[0], color=color)
     ax1.plot(df_merged[0], color=color)
     ax1.tick_params(axis='y', labelcolor=color)
