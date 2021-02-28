@@ -1,5 +1,5 @@
 from binance import client
-import config, csv
+import config, util, csv
 
 
 def get_klines(symbol, interval):
@@ -11,7 +11,7 @@ def get_klines(symbol, interval):
     )
 
 def write_closing_prices_to_csv(symbol, kline_array):
-    csvfile = open('{}_close_{}_to_{}_{}.csv'.format(symbol, config.start_time_str, config.end_time_str, config.candlestick_interval), 'w', newline='')
+    csvfile = open(util.make_filename_for_symbol(symbol, config.start_time_str, config.end_time_str, config.candlestick_interval), 'w', newline='')
     kline_writer = csv.writer(csvfile, delimiter=',')
     kline_writer.writerow([symbol])
     for kline in kline_array:
